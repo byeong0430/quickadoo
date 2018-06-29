@@ -1,1 +1,8 @@
-$main-border-radius: 20px;
+$radius: 5px;
+%shadow-effect {
+  // shadow effect
+  // reference: https://css-tricks.com/almanac/properties/b/box-shadow/
+  -webkit-box-shadow: -1px 2px 16px 3px lightgrey;
+  -moz-box-shadow: -1px 2px 16px 3px lightgrey;
+  box-shadow: -1px 2px 16px 3px lightgrey;
+}

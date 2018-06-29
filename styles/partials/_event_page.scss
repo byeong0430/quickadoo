@@ -1,0 +1,18 @@
+.event-page {
+  margin-top: 30vh;
+  border-radius: $radius;
+  height: 100%;
+  text-align: center;
+  padding: 0;
+  form {
+    margin: 50px auto;
+  }
+  span.left-icon {
+    width: 40px;
+    text-align: right;
+    padding-right: 8px;
+  }
+  input[type='submit'] {
+    @extend %shadow-effect;
+  }
+}

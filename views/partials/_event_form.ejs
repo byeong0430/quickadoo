@@ -1,55 +1,68 @@
-<form>
-
-  <div class="form-group row">
-    <div class="col-sm-1">.</div>
-    <div class="col-sm">
-      <input type="text" class="form-control" id="event_title" name="evt_title" placeholder="Enter title (i.e. What movie to watch?)">
+<form action='/events' method='POST' class='col-10'>
+  <!-- event -->
+  <div class='event'>
+    <!-- event title -->
+    <div class="form-group">
+      <div class="input-group">
+        <span class='left-icon'>
+          <i class="material-icons">title</i>
+        </span>
+        <input type="text" name='title' class="form-control" placeholder="Enter title (i.e. What movie to watch?)">
+      </div>
     </div>
-  </div>
 
-  <div class="form-group row">
-    <div class="col-sm-1">
-      <i class="fas fa-align-justify"></i>
-    </div>
-    <div class="col-sm">
-      <textarea class="form-control" id="evt_notes" name="evt_notes" rows="3" placeholder="Add description"></textarea>
-    </div>
-  </div>
-
-  <div class="form-group row">
-    <div class="col-sm-1">1</div>
-    <div class="col-sm">
-      <input type="text" class="form-control" id="opt_title" name="opt_title" placeholder="Option name">
+    <!-- title description -->
+    <div class="form-group">
+      <div class="input-group">
+        <span class='left-icon'>
+          <i class="material-icons">subject</i>
+        </span>
+        <textarea name='description' class="form-control" placeholder="Add description"></textarea>
+      </div>
     </div>
     <div class="col-sm-1"><i class="fas fa-copy"></i></div>
     <div class="col-sm-1"><i class="fas fa-trash-alt"></i></div>
     <div class="col-sm-1"></i></div>
   </div>
-  <div class="form-group row">
-    <div class="col-sm-1">
-      <i class="fas fa-clock"></i>
+  <!-- event end -->
+  <hr>
+  <!-- option -->
+  <div class='option'>
+    <!-- option name -->
+    <div class="form-group">
+      <div class="input-group">
+        <span class='left-icon'>
+          <p>1</p>
+        </span>
+        <input type="text" name='name-1' class="form-control options col-6" placeholder="Option name">
+        <span class='right-icon'>
+          <i class="material-icons">file_copy</i>
+          <i class="material-icons">delete</i>
+        </span>
+      </div>
     </div>
-    <div class="col-sm-1">
-      <input type="checkbox" checked id="boolean" name="boolean">
+
+    <!-- option time -->
+    <div class="form-group">
+      <div class="input-group">
+        <span class='left-icon'>
+          <i class="material-icons">access_time</i>
+        </span>
+        <input type="text" name='start_time-1' class="form-control col-6" placeholder="Start time">
+        <input type="text" name='end_time-1' class="form-control col-6" placeholder="End time">
+      </div>
     </div>
-    <div class="col-sm">
-      <input type="text" class="form-control" id="opt_start_time" name="opt_start_time" placeholder="Jun 27 2018">
-    </div>
-    <div class="col-sm-1">to</i>
-    </div>
-    <div class="col-sm">
-      <input type="text" class="form-control" id="opt_end_time" name="opt_end_time" placeholder="Jun 29 2018">
+
+    <!-- option note -->
+    <div class="form-group">
+      <div class="input-group">
+        <span class='left-icon'>
+          <i class="material-icons">create</i>
+        </span>
+        <textarea name='note-1' class="form-control" placeholder="Add notes"></textarea>
+      </div>
     </div>
   </div>
-  <div class="form-group row">
-    <div class="col-sm-1">
-      <i class="fas fa-edit"></i>
-    </div>
-    <div class="col-sm">
-      <textarea class="form-control" id="opt_notes" name="opt_notes" rows="3" placeholder="Add notes"></textarea>
-    </div>
-  </div>
-
-  <div class="float-md-left"><input type=button value=preview></div></div>
-
+  <!-- option end -->
+  <input type="submit" class="btn btn-primary" value='SUBMIT'>
 </form>
