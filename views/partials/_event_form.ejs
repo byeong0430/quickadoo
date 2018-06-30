@@ -1,4 +1,4 @@
-<form action='/events' method='POST' class='col-10'>
+<form action='/events' method='POST' class='col-10' id="multi">
   <!-- user info -->
   <div class='user'>
     <div class="form-group">
@@ -51,49 +51,84 @@
         <textarea name='description' class="form-control" placeholder="Add description"></textarea>
       </div>
     </div>
-    <div class="col-sm-1"><i class="fas fa-copy"></i></div>
-    <div class="col-sm-1"><i class="fas fa-trash-alt"></i></div>
-    <div class="col-sm-1"></i></div>
+    <div class="col-sm-1">
+      <i class="fas fa-copy"></i>
+    </div>
+    <div class="col-sm-1">
+      <i class="fas fa-trash-alt"></i>
+    </div>
+    <div class="col-sm-1">
+      </i>
+    </div>
   </div>
   <!-- event end -->
   <hr>
   <!-- option -->
-  <div class='option'>
-    <!-- option name -->
-    <div class="form-group">
-      <div class="input-group">
-        <span class='left-icon'>
-          <p>1</p>
-        </span>
-        <input type="text" name='name-1' class="form-control options col-6" placeholder="Option name">
-        <span class='right-icon'>
-          <i class="material-icons">file_copy</i>
-          <i class="material-icons">delete</i>
-        </span>
-      </div>
-    </div>
 
-    <!-- option time -->
-    <div class="form-group">
-      <div class="input-group">
-        <span class='left-icon'>
-          <i class="material-icons">access_time</i>
-        </span>
-        <input type="text" name='start_time-1' class="form-control col-6" placeholder="Start time">
-        <input type="text" name='end_time-1' class="form-control col-6" placeholder="End time">
-      </div>
-    </div>
+  <!-- <button id="add" name='add'>
+      <i class="material-icons">add</i>
+    </button> -->
+  <input type="button" value="Add" id="add">
+  
+  <div id='options' class='options hidden'>
 
-    <!-- option note -->
-    <div class="form-group">
-      <div class="input-group">
-        <span class='left-icon'>
-          <i class="material-icons">create</i>
-        </span>
-        <textarea name='note-1' class="form-control" placeholder="Add notes"></textarea>
+      <!-- option name -->
+      <div class="form-group">
+        <div class="input-group">
+          <span class='left-icon'>
+            <p>1</p>
+          </span>
+          <input type="text" name='name' class="form-control options col-6" placeholder="Option name">
+          <span class='right-icon'>
+            <!-- <button id="addbutton" name='addbutton-1' class="change_buttons">
+              <i class="material-icons">file_copy</i>
+            </button> -->
+            <!-- <button id="del" name='del'>
+              <i class="material-icons">delete</i>
+            </button> -->
+            
+          </span>
+        </div>
       </div>
-    </div>
+
+      <!-- option time -->
+      <div class="form-group">
+        <div class="input-group">
+          <span class='left-icon'>
+            <i class="material-icons">access_time</i>
+          </span>
+          <input type="text" name='start_time' class="form-control col-6" placeholder="Start time">
+          <input type="text" name='end_time' class="form-control col-6" placeholder="End time">
+        </div>
+      </div>
+
+      <!-- option note -->
+      <div class="form-group">
+        <div class="input-group">
+          <span class='left-icon'>
+            <i class="material-icons">create</i>
+          </span>
+          <textarea name='note' class="form-control" placeholder="Add notes"></textarea>
+        </div>
+      </div>
+
+      <input type="button" id="del" value="del">
+
   </div>
   <!-- option end -->
   <input type="submit" class="btn btn-primary" value='SUBMIT'>
+
 </form>
+
+
+<!-- <form>
+ <input type="button" value="Add" id="add">
+ <div id="options" class="hidden">
+    <p>
+        Phone number : <input type="text" name="phone_number">
+        First Name : <input type="text" name="first_name">
+        <textarea name="notes"></textarea>
+        <input type="button" id="del" value="del">
+    </p>
+</div>
+</form> -->
