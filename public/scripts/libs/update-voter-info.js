@@ -7,8 +7,11 @@ const displayVoterChoices = response => {
   // also update voter's choice(s)
   $('input[type=checkbox]').each(function () {
     for (let i = 0; i < options.length; i++) {
-      if ($(this).val() == options[i])
-        $(this).attr('checked', true);
+      if ($(this).val() == options[i]) {
+        $(this).prop('checked', true);
+      } else {
+        $(this).prop('checked', false);
+      }
     }
   });
 };
