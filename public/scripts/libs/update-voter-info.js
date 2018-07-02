@@ -1,4 +1,4 @@
-const displayVoterChoices = response => {
+const displayVoterChoices = (response, $userEmail) => {
   const { user, options } = response;
   const { first_name, last_name } = user;
   // update the voter's first & last name input fields
@@ -7,11 +7,8 @@ const displayVoterChoices = response => {
   // also update voter's choice(s)
   $('input[type=checkbox]').each(function () {
     for (let i = 0; i < options.length; i++) {
-      if ($(this).val() == options[i]) {
-        $(this).prop('checked', true);
-      } else {
-        $(this).prop('checked', false);
-      }
+      if ($userEmail == options[i])
+        $userEmail.attr('checked', true);
     }
   });
 };
@@ -19,10 +16,11 @@ const displayVoterChoices = response => {
 const updateVoterInfo = () => {
   // when voter email's filled, execute the function below
   $('input[name="voter_email"]').blur(function () {
+    const email = $(this).val();
     $.ajax('/voters', {
       method: 'POST',
-      data: { email: $(this).val() }
-    }).done(res => displayVoterChoices(res))
+      data: { email }
+    }).done(res => displayVoterChoices(res, $email))
   });
 };
 
