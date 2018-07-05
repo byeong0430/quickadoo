@@ -3,8 +3,8 @@
     <tr>
       <th scope="col" class="table-success">&nbsp;</th>
       <th scope="col" class="table-success">Option</th>
-      <th scope="col" class="table-success">Date</th>
-      <th scope="col" class="table-success">Time</th>
+      <th scope="col" class="table-success">Start Time</th>
+      <th scope="col" class="table-success">End Time</th>
       <th scope="col" class="table-success">Attendees</th>
       <th scope="col" class="table-success">Votes</th>
     </tr>
@@ -18,8 +18,15 @@
         <input type="checkbox" name="<%= chkOption %>" value="<%= option_id %>">
       </th>
       <td><%= name %></td>
-      <td><%= start_time %></td>
-      <td><%= end_time %></td>
+      <%
+        const s_time = start_time.toISOString().split('.')[0];
+        const e_time = end_time.toISOString().split('.')[0];
+         %>
+      <td>
+        <%- s_time.replace('T', ' ') %>
+      </td>
+      <td>
+        <%- e_time.replace('T', ' ') %>
       <td>
         <% poll.voterCounts.forEach((voter, index)=>{
             if (option_id === voter.option_id) { %>
