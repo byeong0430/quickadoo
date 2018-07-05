@@ -1,0 +1,40 @@
+<table class="table table-bordered shadow">
+  <thead>
+    <tr>
+      <th scope="col" class="table-success">&nbsp;</th>
+      <th scope="col" class="table-success">Option</th>
+      <th scope="col" class="table-success">Date</th>
+      <th scope="col" class="table-success">Time</th>
+      <th scope="col" class="table-success">Attendees</th>
+      <th scope="col" class="table-success">Votes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for (let i = 0; i < poll.eventRecord.length; i++) {
+        const {option_id, name, start_time, end_time} = poll.eventRecord[i];
+        const chkOption = "option" + i; %>
+    <tr>
+      <th scope="row" class="text-left">
+        <input type="checkbox" name="<%= chkOption %>" value="<%= option_id %>">
+      </th>
+      <td><%= name %></td>
+      <td><%= start_time %></td>
+      <td><%= end_time %></td>
+      <td>
+        <% poll.voterCounts.forEach((voter, index)=>{
+            if (option_id === voter.option_id) { %>
+          <span class='badge badge-primary'>
+            <%= voter.name %>
+          </span>
+          <% }}) %>
+      </td>
+      <td>
+        <% poll.voterCounts.forEach(voter => {
+    if (option_id === voter.option_id) { %>
+          <%= voter.counts %>
+            <% }}) %>
+      </td>
+    </tr>
+    <% } %>
+  </tbody>
+</table>

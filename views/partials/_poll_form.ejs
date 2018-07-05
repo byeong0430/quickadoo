@@ -1,179 +1,28 @@
-<%
-// user information
-const {first_name, last_name, created_at, id} = poll.eventRecord[0];
-
-// event information
-const {title, description, poll_url, event_id} = poll.eventRecord[0];
-
-// TOTAL OF VOTES BY EACH OPTIONS OF THE EVENT
-let totals = poll.voterCounts;
-
-function convertNames(names) {
-  let re = /\s*,\s*/;
-  let result = names.split(re);
-  return result;
-}
-
-function getNames(data,limit) {
-  let tam = data.length;
-  let dif = 0;
-  let result = '';
-  if (tam > limit) {
-    dif = tam - limit;
+<script>
+  function myFunction() {
+    var copyText = document.getElementById("myInput");
+    copyText.select();
+    document.execCommand("copy");
   }
-  if (dif) {
-    if (limit === 1) {
-      return data[0] + ' (+' + (tam - 1) + ')';
-    } else {
-      let upTo = limit - 1;
-      for (let i = 0; i <= upTo; i++ ) {
-        if (i === upTo) {
-          result += data[i];
-        } else {
-          result += data[i] + ', ';
-        }
-      }
-      result += ' (+' + dif + ')';
-      return result;
-    }
-  } else {
-    for (let i = 0; i < data.length; i++ ) {
-      if (i === data.length - 1) {
-        result += data[i];
-      } else {
-        result += data[i] + ', ';
-      }
-    }
-    return result;
-  }
-  return data;
-}
+</script>
 
-%>
-
-  <script>
-    function myFunction() {
-      var copyText = document.getElementById("myInput");
-      copyText.select();
-      document.execCommand("copy");
-    }
-  </script>
-
+<form action="/events/<%= poll.eventRecord[0].poll_url %>/vote" method="POST">
   <!-- Title information -->
   <div class="container">
-    <span class='event_title'>
-      <%=title %>
-    </span> created by
-    <span class='badge badge-info'>
-      <%= `${first_name} ${last_name}` %>
-    </span>
-    <p>
-      <%=description%>
-    </p>
-    <p>
-      <%=`Created at: ${created_at}` %>
-    </p>
-    <p>
-      <input type="text" value="http://10.30.33.183:8080/events/<%=poll_url %>" id="myInput" size=40 readonly>
-      <button class='btn btn-warning btn-sm' onclick="myFunction()">COPY</button>
-
-    </p>
+    <%- include('_poll_title') %>
+  </div>
+  <% if (locals.message) { %>
+  <div class="alert alert-danger">
+    <%= locals.message %>
+  </div>
+  <% } %>
+  <!-- Current voter information -->
+  <div class="container align-items-center justify-content-center">
+    <%- include('_poll_user_form') %>
   </div>
 
-  <form action="/events/<%=poll_url%>/vote" method="POST">
-
-    <% if (locals.message) { %>
-      <div class="alert alert-danger">
-        <%=locals.message%>
-      </div>
-      <% }%>
-
-        <!-- Current voter information -->
-        <div class="container align-items-center justify-content-center">
-          <table class="table shadow">
-            <thead>
-              <tr>
-                <th scope="col" class="table-success">E-mail</th>
-                <th scope="col" class="table-success">First name</th>
-                <th scope="col" class="table-success">Last name</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  <input type=email class='form-control' name="voter_email" placeholder="E-mail">
-                </td>
-                <td>
-                  <input type=text class='form-control' name="voter_first_name" placeholder="First name">
-                </td>
-                <td>
-                  <input type=text class='form-control' name="voter_last_name" placeholder="Last name">
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <table class="table table-bordered shadow">
-          <thead>
-            <tr>
-              <th scope="col" class="table-success">&nbsp;</th>
-              <th scope="col" class="table-success">Option</th>
-              <th scope="col" class="table-success">Date</th>
-              <th scope="col" class="table-success">Time</th>
-              <th scope="col" class="table-success">Attendees</th>
-              <th scope="col" class="table-success">Votes</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% for (let i = 0; i < poll.eventRecord.length; i++) {
-        let option_id = poll.eventRecord[i].option_id;
-        let option_name = poll.eventRecord[i].name;
-        let start_time = poll.eventRecord[i].start_time;
-        let chkOption = "option" + i;
-      %>
-              <tr>
-                <th scope="row" class="text-left">
-                  <input type="checkbox" name="<%=chkOption%>" value="<%=option_id%>">
-                </th>
-                <td>
-                  <%=option_name%>
-                </td>
-                <td>
-                  <%=start_time%>
-                </td>
-                <td>
-                  <%=start_time%>
-                </td>
-                <td>
-                  <%
-                  totals.forEach((x,index)=>{
-                    if (option_id === x.option_id) { %>
-                    <span class='badge badge-primary'>
-                      <%=getNames(convertNames(x.name),3)%>
-                    </span>
-
-                    <%}
-                    })
-                    %>
-                </td>
-                <td>
-                  <%
-          totals.forEach(function(x){
-            if (option_id === x.option_id) { %>
-                    <%=x.counts%>
-                      <%}
-          })
-        %>
-                </td>
-              </tr>
-              <% } %>
-          </tbody>
-        </table>
-        <input type=hidden name="person_id" value="<%=id%>">
-        <input type=hidden name="event_id" value="<%=event_id%>">
-        <input type=hidden name="poll_url" value="<%=poll_url%>">
-        <input type=hidden name="poll_info" value="<%=JSON.stringify(poll)%>">
-        <input type="submit" id="sendVote" class="btn btn-primary" value='VOTE'>
-  </form>
-  <p></p>
+  <div class="container align-items-center justify-content-center">
+    <%- include('_poll_vote_tbl') %>
+  </div>
+  <input type="submit" id="sendVote" class="btn btn-primary" value='VOTE'>
+</form>

@@ -1,0 +1,28 @@
+<%
+  // user information
+  const {first_name, last_name, created_at, id} = poll.eventRecord[0];
+  // event information
+  const {title, description, poll_url, event_id} = poll.eventRecord[0];
+%>
+<span class='event_title'>
+  <%= title %>
+</span>
+created by
+<span class='badge badge-info'>
+  <%= `${first_name} ${last_name}` %>
+</span>
+<p>
+  <%= description %>
+</p>
+<p>
+  <%= `Created at: ${created_at}` %>
+</p>
+<p>
+  <input type="text" value="localhost:8080/events/<%= poll_url %>" id="myInput" size=40 readonly>
+  <button class='btn btn-warning btn-sm' onclick="myFunction()">COPY</button>
+</p>
+
+<input type='hidden' name="person_id" value="<%= id %>">
+<input type='hidden' name="event_id" value="<%= event_id %>">
+<input type='hidden' name="poll_url" value="<%= poll.eventRecord[0].poll_url %>">
+<input type='hidden' name="poll_info" value="<%= JSON.stringify(poll) %>">

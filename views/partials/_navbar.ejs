@@ -1,23 +1,26 @@
 <section class='nav-wrapper'>
   <article>
-    <nav class="navbar navbar-light bg-light">
-      <a class="navbar-brand" href="/">
-        <img src="/images/logo.png" alt="quickadoo_logo">
-      </a>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+      <div class='container'>
+        <a class="navbar-brand" href="/">
+          <img src="/images/logo.png" alt="quickadoo_logo">
+        </a>
+      </div>
     </nav>
   </article>
   <% if(locals.formData){ %>
     <article class='alert alert-success nav-alert-wrapper' role='alert'>
-      <h4>Success! Invite your friends via...</h4>
+      <h4>Invite your friends via...</h4>
       <div class="input-group col-xl-5 col-lg-6 col-md-8 col-sm-11 col-12">
         <span class="input-group-addon">
           <i class="material-icons">file_copy</i>
         </span>
-        <input type="text" readonly class="form-control" value='<%= `http://10.30.33.183:8080/events/${formData[0].poll_url}` %>' />
+        <input type="text" readonly class="form-control" value='<%= `localhost:8080/events/${formData[0].poll_url}` %>'
+        />
       </div>
     </article>
     <span class="alert alert-danger" role="alert">
-      <%= `Admin URL: http://10.30.33.183:8080/events/${formData[0].admin_url}` %>
+      <%= `Admin URL: localhost:8080/events/${formData[0].admin_url}` %>
     </span>
     <% } %>
 </section>
