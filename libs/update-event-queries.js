@@ -1,3 +1,6 @@
+// convert utc time to pst
+const changeTz = (utcTime, timeDiff) => utcTime.setHours(utcTime.getHours() - timeDiff);
+
 // get event_id corresponding to the given url
 const getEventId = (knex, url) => {
   return new Promise((resolve, reject) => {
@@ -64,4 +67,7 @@ async function getEventRecord(knex, url) {
   return { eventRecord, voterCounts };
 }
 
-module.exports = getEventRecord;
+module.exports = {
+  changeTz,
+  getEventRecord
+}
