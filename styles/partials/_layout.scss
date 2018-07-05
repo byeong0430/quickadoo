@@ -15,10 +15,5 @@ html {
 }
 
 body {
-  margin: 0 auto;
-  font-family: 'Roboto Condensed', san-serif; // background image
-  background-image: url('/images/background.jpg');
-  * {
-    background-color: white;
-  }
+  @extend %theme-font;
 }

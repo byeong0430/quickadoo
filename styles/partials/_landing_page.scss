@@ -1,22 +1,21 @@
 .landing-page {
-  margin-top: 30vh;
+  @extend %center-landing-page;
+  @extend %shadow-effect;
+  padding: 2em;
+  background-color: rgb(245, 252, 240);
   border-radius: $radius;
   text-align: center;
-  padding: 50px 0px;
-  h1 {
-    font-size: 32px;
-  }
   main {
     text-align: left;
-    margin: 0 auto;
-    width: 70%;
-    &>* {
-      // '>' refers to immediate children
-      margin-bottom: 25px;
+    h1 {
+      font-size: 32px;
     }
     img {
-      width: 40%;
+      width: 235px;
       vertical-align: bottom;
+    }
+    h5 {
+      margin: 20px 0;
     }
   }
   input {

@@ -1,8 +1,28 @@
-$radius: 5px;
+@import url('https://fonts.googleapis.com/css?family=Acme');
+%theme-font {
+  font-family: 'Acme', sans-serif;
+  color: rgb(46, 46, 46);
+}
+
+$radius: 50px;
 %shadow-effect {
   // shadow effect
   // reference: https://css-tricks.com/almanac/properties/b/box-shadow/
-  -webkit-box-shadow: -1px 2px 16px 3px lightgrey;
-  -moz-box-shadow: -1px 2px 16px 3px lightgrey;
-  box-shadow: -1px 2px 16px 3px lightgrey;
+  -webkit-box-shadow: -1px 2px 16px 3px rgb(240, 250, 233);
+  -moz-box-shadow: -1px 2px 16px 3px rgb(240, 250, 233);
+  box-shadow: -1px 2px 16px 3px rgb(240, 250, 233);
+}
+
+%center-landing-page {
+  /* focus div to window center */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: rotate(-3deg);
+  -moz-transform: rotate(-3deg);
+  -o-transform: rotate(-3deg);
+  -ms-transform: rotate(-3deg);
+  transform: rotate(-3deg);
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }

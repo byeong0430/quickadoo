@@ -1,11 +1,9 @@
 section.nav-wrapper {
-  nav.navbar {
-    width: 100%;
-    border-radius: $radius;
-    display: inline-block;
+  div.container {
+    display: flex;
+    justify-content: center;
     img {
-      float: center;
-      width: 200px;
+      width: 235px;
     }
   }
   article.nav-alert-wrapper {
