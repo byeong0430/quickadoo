@@ -31,17 +31,16 @@ module.exports = knex => {
 
     getEventRecord(knex, url)
       .then(stats => {
-
-
+        // convert utc to pst
         stats.eventRecord.forEach(record => {
           record.start_time = new Date(changeTz(record.start_time, 7));
           record.end_time = new Date(changeTz(record.end_time, 7));
         })
-        //console.log(stats);
         if (url === stats.eventRecord[0].admin_url) {
-          //console.log('render admin page');
+          // console.log('render admin page');
           res.status(200).render('event', { formData: stats.eventRecord });
         } else {
+          // console.log('render poll page');
           res.status(200).render('poll', { poll: stats });
         }
       })
