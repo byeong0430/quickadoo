@@ -1,4 +1,4 @@
-!["Logo"](https://github.com/Wisara8/quickadoo/blob/master/docs/logo.png?raw=true)
+!["Logo"](https://github.com/byeong0430/quickadoo/blob/master/docs/logo.png?raw=true)
 # Quickadoo
 ## Plan your day with Quickadoo
 
@@ -25,9 +25,9 @@ This project utilizes HTML, CSS, JS, EJS, jQuery and AJAX on the front-end; as w
 
 ## Final Product
 
-!["Landing Page"](https://github.com/Wisara8/quickadoo/blob/master/docs/Landing%20Page.png?raw=true)
-!["Create Event Page"](https://github.com/Wisara8/quickadoo/blob/master/docs/Event%20Form.png?raw=true)
-!["Poll Page wtih Votes"](https://github.com/Wisara8/quickadoo/blob/master/docs/Poll%20Page%20with%20Votes.png?raw=true)
+!["Landing Page"](https://github.com/byeong0430/quickadoo/blob/master/docs/Landing%20Page.png?raw=true)
+!["Create Event Page"](https://github.com/byeong0430/quickadoo/blob/master/docs/Event%20Form.png?raw=true)
+!["Poll Page wtih Votes"](https://github.com/byeong0430/quickadoo/blob/master/docs/Poll%20Page%20with%20Votes.png?raw=true)
 <!-- !["Thanks for Voting!"]() -->
 
 ## Getting Started
