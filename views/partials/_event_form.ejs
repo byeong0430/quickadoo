@@ -35,8 +35,8 @@
     <div class='form-group'>
       <div class='input-group'>
         <i class='material-icons left-icon'>title</i>
-        <input type='text' name='title' class='form-control col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12' placeholder='Enter title (i.e. What movie to watch?)' value='<% if(locals.formData){ %><%= formData[0].title %><% } %>'
-          required>
+        <input type='text' name='title' class='form-control col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12' placeholder='Enter title (i.e. What movie to watch?)'
+          value='<% if(locals.formData){ %><%= formData[0].title %><% } %>' required>
         <div class='invalid-feedback'>
           Please provide an event title.
         </div>
@@ -46,7 +46,7 @@
     <div class='form-group'>
       <div class='input-group'>
         <i class='material-icons left-icon'>subject</i>
-        <textarea name='description' class='form-control' placeholder='Add description' value='<% if(locals.formData){ %><%= formData[0].description %><% } %>'></textarea>
+        <textarea name='description' class='form-control' placeholder='Add description'><% if(locals.formData){ %><%= formData[0].description %><% } %></textarea>
       </div>
     </div>
   </div>
