@@ -4,7 +4,7 @@ const router = express.Router();
 
 // import functions
 const { validateVoters, castVotes } = require('../libs/update-voter-queries');
-const getEventRecord = require('../libs/update-event-queries');
+const { changeTz, getEventRecord } = require('../libs/update-event-queries');
 const updateFormData = require('../libs/update-form-queries');
 const { filterObj, generateRandomString, capitaliseFirstLetter } = require('../libs/query-helpers');
 
@@ -31,12 +31,17 @@ module.exports = knex => {
 
     getEventRecord(knex, url)
       .then(stats => {
+
+
+        stats.eventRecord.forEach(record => {
+          record.start_time = new Date(changeTz(record.start_time, 7));
+          record.end_time = new Date(changeTz(record.end_time, 7));
+        })
         //console.log(stats);
         if (url === stats.eventRecord[0].admin_url) {
           //console.log('render admin page');
           res.status(200).render('event', { formData: stats.eventRecord });
         } else {
-          //console.log('poll');
           res.status(200).render('poll', { poll: stats });
         }
       })
