@@ -15,11 +15,11 @@ created by
   <%= description %>
 </p>
 <p>
-  <%= `Created at: ${created_at}` %>
-</p>
-<p>
-  <input type="text" value="localhost:8080/events/<%= poll_url %>" id="myInput" size=40 readonly>
-  <button class='btn btn-warning btn-sm' onclick="myFunction()">COPY</button>
+  <%
+    const c_time = created_at.toISOString().split('.')[0];
+  %>
+  <td>
+  <%- `Created at: ${c_time.replace('T', ' ')}` %>
 </p>
 
 <input type='hidden' name="person_id" value="<%= id %>">

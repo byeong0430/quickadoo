@@ -33,6 +33,7 @@ module.exports = knex => {
       .then(stats => {
         // convert utc to pst
         stats.eventRecord.forEach(record => {
+          record.created_at = new Date(changeTz(record.created_at, 7));
           record.start_time = new Date(changeTz(record.start_time, 7));
           record.end_time = new Date(changeTz(record.end_time, 7));
         })
