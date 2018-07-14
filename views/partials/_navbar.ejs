@@ -21,14 +21,17 @@
         </span>
       </div>
     </article>
-    <span class="alert alert-danger" role="alert">
-      <span class="input-group-addon">
-        <i class="material-icons">file_copy</i>
-        Admin URL:
-        <span class='url'>
-          <span class='host-name'></span>
-          <%= `${formData[0].admin_url}` %>
+    <article class="alert alert-danger nav-alert-wrapper" role="alert">
+      <h5>Admin page (<em>Don't share it!</em>)</h5>
+      <div class="input-group col-xl-5 col-lg-6 col-md-8 col-sm-11 col-12">
+        <span class="input-group-addon">
+          <i class="material-icons">file_copy</i>
+          <span class='url'>
+            <span class='host-name'></span>
+            <%= `${formData[0].admin_url}` %>
+          </span>
         </span>
-      </span>
-      <% } %>
+      </div>
+    </article>
+    <% } %>
 </section>
