@@ -69,7 +69,7 @@ app.get('/db', async (req, res) => {
     console.error(err);
     res.send("Error " + err);
   }
-})
+});
 
 // listen to port
 // if we set the IP address to '0.0.0.0', anyone can view the web page through my IP address
