@@ -61,10 +61,9 @@ const copyTextToClipboard = $text => {
 
 // create a button that users can click on to copy poll URLs
 const makeUrlCopyBtn = () => {
-  $('article.nav-alert-wrapper .input-group').click(function () {
-    const $parentDiv = $(this).parents().eq(1);
-    // get the input value and copy it to clipboard
-    const $textValue = $parentDiv.find('input[type="text"]').val();
+  $('section.nav-wrapper .input-group-addon').click(function () {
+    // get the input value and copy it to clipboard (remove all white spaces)
+    const $textValue = $(this).find('.url').text().replace(/\s+/g, '');
     copyTextToClipboard($textValue);
   })
 };
