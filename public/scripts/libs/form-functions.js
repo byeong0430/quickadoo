@@ -57,6 +57,7 @@ const submitEventForm = () => {
       data: formJSON,
       dataType: 'json',
       success: urls => {
+        // make a get request to admin_url
         window.location = `${window.location.href}/${urls.admin_url}`;
       }
     })
