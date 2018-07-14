@@ -14,7 +14,7 @@ const bodyParser = require("body-parser");
 const sass = require("node-sass-middleware");
 const { Pool } = require('pg');
 const pool = new Pool({
-  connectionString: 'postgres://shoabaykeojhto:2a3e689d45243730b33a6f96d774c18cb5f328e3915b366ad39ed137d40c0d6a@ec2-23-21-166-148.compute-1.amazonaws.com:5432/df4euf3p2omba9',
+  connectionString: process.env.DATABASE_URL,
   ssl: true
 })
 
@@ -62,7 +62,7 @@ app.use('/', usersRoutes(knex));
 app.get('/db', async (req, res) => {
   try {
     const client = await pool.connect()
-    const result = await client.query('SELECT * FROM users');
+    const result = await client.query('SELECT * FROM test_table');
     res.render('pages/db', result);
     client.release();
   } catch (err) {
