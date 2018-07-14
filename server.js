@@ -62,7 +62,7 @@ app.use('/', usersRoutes(knex));
 app.get('/db', async (req, res) => {
   try {
     const client = await pool.connect()
-    const result = await client.query('SELECT * FROM users');
+    const result = await client.query('SELECT * FROM users;');
     res.render('pages/db', result);
     client.release();
   } catch (err) {
