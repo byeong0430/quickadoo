@@ -1,5 +1,5 @@
 // convert utc time to pst
-const changeTz = (utcTime, timeDiff) => utcTime.setHours(utcTime.getHours() - timeDiff);
+const changeTz = (utcTime, timeDiff) => utcTime && utcTime.setHours(utcTime.getHours() - timeDiff);
 
 // get event_id corresponding to the given url
 const getEventId = (knex, url) => {
