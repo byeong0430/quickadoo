@@ -6,7 +6,8 @@ require('dotenv').config();
 const IP = '0.0.0.0';
 // process.env.PORT in case Heroku
 const PORT = process.env.PORT || 8080;
-const ENV = process.env.ENV || "development";
+const ENV = process.env.NODE_ENV || "development";
+console.log('Environment: ', ENV);
 
 // load npm packages
 const express = require("express");
