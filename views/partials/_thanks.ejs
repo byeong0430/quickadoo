@@ -3,8 +3,11 @@
     <img src="/images/logo.png" alt="quickadoo_logo">
     <h5>Thanks for your vote!</h5>
     <p>Share this Event with your friends using the link above.</p>
-    <a href="/events/<%= locals.url %>">localhost:8080/events/<%= locals.url %></a>
   </main>
   <footer>
+    <a href="/events/<%= locals.url %>">
+      <span class='host-name'></span>events/
+      <%= locals.url %>
+    </a>
   </footer>
 </article>
