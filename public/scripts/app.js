@@ -24,6 +24,10 @@ $(() => {
   // submit event form
   submitEventForm();
 
-  // when voter email's filled, execute the function below
+  // add the host name at the beginning of poll_url and admin_url
+  $('.host-name').html(`${window.location.host}/events/`);
+
+  // when voter email's filled, check if email exists in db
+  // if so, auto-fill input boxes based on the info
   updateVoterInfo();
 });
